@@ -32,5 +32,5 @@ Also, here are the recommended iteration values for you to use on each fractal:
     Cesaro Fractal: 1-4
     Repeating Triangles: 1-3
 
-PLEASE AVOID GOING OVER RECOMMENDED ITERATION LIMIT BY TOO MANY ITERATIONS. The program might crash if you do.
+Please avoid going over the iteration limit by too much. The program might crash if you do.
 
