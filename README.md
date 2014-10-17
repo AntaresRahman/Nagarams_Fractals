@@ -1,11 +1,8 @@
 Nagarams_Fractals
 =================
-by Antares Rahman, Katie Bixby
-
-Python Programming Project
-
-Instructor: Christine Chung
-
+by Antares Rahman, Katie Bixby\n
+Python Programming Project\n
+Instructor: Christine Chung\n
 November 22, 2013
 
 Run nagarams_fractals.py
