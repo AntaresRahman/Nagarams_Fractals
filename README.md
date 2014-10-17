@@ -26,6 +26,7 @@ You can also click 'Clear' at any time to clear off any fractals you've already 
 If you leave any of the customization options blank, the program will use the default options that have been set in order to draw in any fractals.
 
 Also, here are the recommended iteration values for you to use on each fractal:
+    
     Koch Curve: 1-4
     
     C-Curve: 8-10
