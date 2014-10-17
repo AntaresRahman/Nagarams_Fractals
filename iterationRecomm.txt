@@ -1,0 +1,19 @@
+The recommended iteration
+values to use on each fractal:
+ Koch Curve:
+ *1-4
+ C-Curve:
+ *8-10
+ Gosper Island Fractal:
+ *1-4
+ Cesaro Fractal:
+ *1-4
+ Repeating Triangles:
+ *1-3
+
+ Default:
+ *Color: black
+ *Line Length: 50
+ *Iterations: 2
+ *X-Val: 300
+ *Y-Val: 300
