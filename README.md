@@ -27,9 +27,13 @@ If you leave any of the customization options blank, the program will use the de
 
 Also, here are the recommended iteration values for you to use on each fractal:
     Koch Curve: 1-4
+    
     C-Curve: 8-10
+    
     Gosper Island Fractal: 1-4
+    
     Cesaro Fractal: 1-4
+    
     Repeating Triangles: 1-3
 
 Please avoid going over the iteration limit by too much. The program might crash if you do.
