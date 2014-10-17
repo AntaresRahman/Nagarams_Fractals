@@ -1,4 +1,4 @@
-Nagarams_Fractals
+Nagarams & Fractals
 =================
 by Antares Rahman, Katie Bixby
 
