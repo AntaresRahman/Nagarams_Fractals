@@ -1,9 +1,11 @@
 Nagarams_Fractals
 =================
-
 by Antares Rahman, Katie Bixby
+
 Python Programming Project
+
 Instructor: Christine Chung
+
 November 22, 2013
 
 Run nagarams_fractals.py
