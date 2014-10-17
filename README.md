@@ -11,7 +11,7 @@ November 22, 2013
 
 Run nagarams_fractals.py
 
-Nagarams: The name comes from the Google Search easter egg where searching for "anagram" suggests "Did you mean: nag a ram". This part of the program essentially takes a user-defined English word, binary searches through a dictionary of English words, and prints out all possible anagrams of that word.
+Nagarams: The name comes from the Google Search easter egg where searching for "anagram" suggests "Did you mean: nag a ram". This part of the program essentially takes a user-defined English word, binary searches through a dictionary of English words, and prints out all possible English anagrams of that word.
 
 The program might take time if a large word is used.
 
