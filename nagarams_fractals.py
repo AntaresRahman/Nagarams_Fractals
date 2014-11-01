@@ -199,7 +199,7 @@ def anagramsOption(gwin):
     #####WINDOW 3 - ANAGRAMS WINDOW#####
     
     #Title
-    title = Text(Point(300, 30), "Anagrams")
+    title = Text(Point(300, 30), "Nagarams")
     title.setFace("courier")
     title.setSize(25)
     title.draw(gwin)
@@ -260,7 +260,7 @@ def main():
     win = GraphWin("Programming Assignment 6", 600,600)
 
     #Title and description
-    title = Text(Point(300,75), "Fractals and Nags a ram!")
+    title = Text(Point(300,75), "Fractals and Nagarams!")
     title.setFace("courier")
     title.setSize(20)
     title.draw(win)
@@ -276,7 +276,7 @@ def main():
 
     #Buttons for options
     option1Button = Button(win, Point(200,425), 100, 50, "Fractals")
-    option2Button = Button(win, Point(400,425), 100, 50, "Anagrams")
+    option2Button = Button(win, Point(400,425), 100, 50, "Nag a ram")
     #Exit button
     exitButton = Button(win, Point(550, 550), 30, 30, "Exit")
     
