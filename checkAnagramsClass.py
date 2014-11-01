@@ -1,98 +1,78 @@
-#Antares Rahman & Katie Bixby
+#Antares Rahman
 #Nov 22, 2013
-#Class for creating buttons
+#Class for checking for anagrams of a word
 
-from graphics import *
+class checkAnagrams:
 
-class Button:
+    """This class is a string object lowercased.
+    It has three methods: anagrams(), dictWords(), binarySearch() and screenResults()"""
+    def __init__(self, s):
+        self.s = s.lower() #string s in lowercase
 
-    """A button is a labeled rectangle in a window.
-    It is enabled or disabled with the activate()
-    and deactivate() methods. The clicked(pt) method
-    returns True if and only if the button is enabled and pt is inside it."""
+    def anagrams(self, s):
+        """checks for all possible combinations of characters in a given string recursively.
+        returns a list of all possible anagrams of the string"""
+        if s == "": #base case for recursion; empty string
+            return [s] #return empty string
+        else: #recursive case; non-empty string
+            ans = [] #initiate list
+            for w in self.anagrams(s[1:]): #loop through each character in s, except the 1st
+                for pos in range(len(w)+1): #loop through the list a number of times = length of list w + 1
+                    #concatenate various combinations of the characters as strings
+                    #append these strings to the list ans
+                    ans.append(w[:pos]+s[0]+w[pos:])
+            return ans #return the list of all possible combinations of characters in a string
 
-    def __init__(self, win, center, width, height, label):
-        ## as you read through this, ask yourself:  what are the instance variables here?
-        ## it would be useful to add comments describing what some of these variables are for...
-        """ Creates a rectangular button, eg:
-        qb = Button(myWin, centerPoint, width, height, 'Quit') """ 
-        w,h = width/2.0, height/2.0
-        x,y = center.getX(), center.getY()
-        ## you should comment these variables...
-        self.xmax, self.xmin = x+w, x-w 
-        self.ymax, self.ymin = y+h, y-h
-        p1 = Point(self.xmin, self.ymin)
-        p2 = Point(self.xmax, self.ymax)
-        self.rect = Rectangle(p1,p2)
-        self.rect.setFill('lightgray')
-        self.rect.draw(win)
-        self.label = Text(center, label)
-        self.label.draw(win)
-        self.active = True #this variable keeps track of whether or not the button is currently "active"
+    def dictWords(self):
+        """reads a list of words from an English dictionary"""
+        dictionary = open("2of12.txt", "r") #opens a file containing words from an english dictionary
+        readWords = dictionary.read() #a string of all the words in the dictionary
+        words = readWords.split() #a list of strings of all the words in the dictionary
+        return words
+        
+    def binarySearch(self, words, s):
+        """uses binary search recursively to check if the words in the list of anagrams are English words.
+        Creates a list of anagrams that are English words. returns this new list."""
+        if len(words) == 0: #base case for empty list of words
+            return self.anagramWords #returns list of anagrams that are English words
+        else:
+            mid = len(words)//2 #subsequently divide the dictionary list into halves
+            if words[mid] == self.w: #the middle dictionary word in the list matches with anagram word
+                self.anagramWords.append(self.w)
+            elif words[mid]>self.w: #the middle dictionary word in the list comes alphabetically after the anagram word
+                return self.binarySearch(words[:mid],self.w)
+            else: #the middle dictionary word in the list comes alphabetically before the anagram word
+                return self.binarySearch(words[mid+1:],self.w)
 
-    def getLabel(self):
-        "Returns the label string of this button."
-        return self.label.getText()
-
-    def activate(self):
-        "Sets this button to 'active'."
-        self.label.setFill('black') #color the text "black"
-        self.rect.setWidth(2)       #set the outline to look bolder
-        self.active = True          #set the boolean variable that tracks "active"-ness to True
-
-    ##check 3.  complete the deactivate() method
-    def deactivate(self):
-        "Sets this button to 'inactive'."
-        ##color the text "darkgray"
-        self.label.setFill('darkgray')
-        ##set the outline to look finer/thinner
-        self.rect.setWidth(1)
-        ##set the boolean variable that tracks "active"-ness to False
-        self.active = False
-
-    ##check 4.  complete the clicked() method
-    def clicked(self, p):
-        "Returns true if button active and Point p is inside"
-        ##your code here
-        if self.active == True and self.xmin <= p.getX() <= self.xmax\
-           and self.ymin <= p.getY() <= self.ymax:
-            return True
-
-    
+    def screenResults(self):
+        """screens out any word that is appearing more than once in the list of anagram words by making a new list.
+        returns this new list of words with each word only occuring once in the list."""
+        words1 = self.dictWords()
+        wordList = self.anagrams(self.s) #return the list of all possible combinations of characters in string s
+        #make a list of all possible anagrams
+        self.anagramWords = [] #initiate list        
+        for self.w in wordList:
+            self.binarySearch(words1, self.s)
+        #screen out outputs that occur several times
+        screenWords = [] #initiate another list
+        for w in self.anagramWords: #loop through the list of words in anagramWords
+            if w not in screenWords: #if the word is not yet in screenWords list
+                screenWords.append(w) #append word to the screenWords list
+        return screenWords
+        
 def main():
-    ##check 1. create a graphical window in which to test the Button class
-    win = GraphWin()
+    word = "OptIoN"
+    text = checkAnagrams(word)  
+    print(text.anagrams("aBc"))
+        #expected output:
+            #['aBc', 'Bac', 'Bca', 'acB', 'caB', 'cBa']
+    print(text.screenResults())
+        ##expected intermediate process:
+            #anagramWords = ['option', 'potion', 'option', 'potion']
+            #screenWords = ['option', 'potion']
+        #expected final output:
+            #option
+            #potion
 
-    
-    ##check 2. test the Button constructor method...
-    ##create two Button objects, one for "Roll Dice" and the other for "Quit"
-    ##activate the Roll button
-    Roll = Button(win, Point(100,130), 70, 20, "Roll Dice")
-    Quit = Button(win, Point(100,170), 70, 20, "Quit")
-    Roll.activate()
-
-    ##check 3. now test the deactivate() method...
-    ##deactivate the "Quit" button
-    Quit.deactivate()
-
-    ##check 4. test the .clicked() method with an if statement
-    ##(remove this test code before moving onto the next check)
-
-    pt = win.getMouse()
-   
-    ##check 5. now test the clicked() boolean method...
-    ##keep taking mouse clicks (in a loop) until the "Quit" button is clicked
-        ##if the roll button is clicked
-            ##activate the quit button
-    while not Quit.clicked(pt):
-        if Roll.clicked(pt):
-            Quit.activate()
-        pt = win.getMouse()
-        
-            
-        
-    #we reach this line of code when quit button is clicked b/c loop condition breaks
-    win.close() #so close the window, ending the program
-    
 if __name__ == "__main__":
     main()
