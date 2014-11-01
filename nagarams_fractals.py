@@ -293,7 +293,7 @@ def main():
             
         #If the user selects the anagrams option
         elif option2Button.clicked(pt) == True:
-            win3 = GraphWin("Anagrams", 600, 600) #creates a new window for the anagrams option
+            win3 = GraphWin("Nagarams", 600, 600) #creates a new window for the anagrams option
             anagramsOption(win3) #carries out the anagrams option in the new window
             pt = win.getMouse()
             
